@@ -5,11 +5,18 @@ import java.sql.SQLException;
 
 public class DBConnector {
     private Connection conn;
+    public static final String MYSQL_LOCAL = "jdbc:mysql://localhost:3306/test?" +
+            "user=root&password=Crosshatch3&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+
     public DBConnector() {
         try {
-            this.conn =
-                    DriverManager.getConnection("jdbc:mysql://localhost:3306/test?" +
-                            "user=root&password=Crosshatch3&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+            String dbUrl = System.getenv("JDBC_DATABASE_URL");
+
+            if (dbUrl == null){
+                dbUrl = MYSQL_LOCAL;
+            }
+
+            this.conn = DriverManager.getConnection(dbUrl);
 
         } catch (SQLException ex) {
             // handle any errors
