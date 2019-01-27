@@ -3,24 +3,15 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>CoderGirl 2018 Hello Servlet</display-name>
+  <display-name>Image Database: Samples</display-name>
   <servlet>
     <servlet-name>HelloServlet</servlet-name>
     <servlet-class>servlets.HelloServlet</servlet-class>
   </servlet>
-  <servlet>
-    <servlet-name>RedirectServlet</servlet-name>
-    <servlet-class>servlets.RedirectServlet</servlet-class>
-  </servlet>
-
 
   <servlet-mapping>
     <servlet-name>HelloServlet</servlet-name>
     <url-pattern>/hello</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>RedirectServlet</servlet-name>
-    <url-pattern>/redirect</url-pattern>
   </servlet-mapping>
 
 </web-app>
