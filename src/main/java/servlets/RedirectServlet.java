@@ -1,7 +1,6 @@
 package servlets;
 
 import database.DBConnector;
-import sun.misc.Request;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
