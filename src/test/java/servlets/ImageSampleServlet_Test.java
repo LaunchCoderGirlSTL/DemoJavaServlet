@@ -1,5 +1,6 @@
 package servlets;
 
+import model.ImageRecord;
 import org.junit.Test;
 
 import javax.servlet.RequestDispatcher;
@@ -20,9 +21,10 @@ public class ImageSampleServlet_Test {
 
         //Set up some expected values
         String expectedTarget = "samples.jsp";
-        List<String> expectedCaptions = Arrays.asList("Alpaca Punch",
-                "Top of the food chain",
-                "I'm on Break!");
+        List<ImageRecord> expectedImages = Arrays.asList(
+                new ImageRecord("http://bit.ly/cgidb_alpaca", "Alpaca Punch", true),
+                        new ImageRecord("http://bit.ly/cgidb_dragon1", "Top of the food chain", true),
+                        new ImageRecord("http://bit.ly/cgidb_goats", "I'm on Break!"));
 
         //Mocks are intermediate unit testing, but necessary to test HttpServletRequest.
         //We'll explain later...
@@ -33,7 +35,7 @@ public class ImageSampleServlet_Test {
 
         //call the method under test
         new ImageSampleServlet().doPost(req, resp);
-        verify(req).setAttribute("captions", expectedCaptions);  //more mocks, ignore this.
+        verify(req).setAttribute("results", expectedImages);  //more mocks, ignore this.
 
     }
 }

@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page isELIgnored="false" %>
+<%@ page import="java.lang.*;"%>
 
 <html>
 <head>
@@ -44,16 +45,18 @@ tr {
 
 <table cellpadding="0" cellspacing="0" border="0" bgcolor="lightgrey">
 <tr>
-    <td><img src="http://bit.ly/cgidb_alpaca" class="rotate90"></td>
-    <td><img src="http://bit.ly/cgidb_dragon1" class="rotate90"></td>
-    <td><img src="http://bit.ly/cgidb_goats"></td>
+<c:forEach var="image" items="${results}">
+
+    <td> <img src="${image.getUrl()}"  </td>
+
+</c:forEach>
     <td></td>
 </tr>
 
 <tr>
-<c:forEach var="caption" items="${captions}">
+<c:forEach var="image" items="${results}">
 
-    <td>  ${caption} </td>
+    <td>  ${image.getCaption()} </td>
 
 </c:forEach>
 </tr>
