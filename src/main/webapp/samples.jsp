@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %>
+
 <html>
 <head>
 <style>
@@ -46,11 +49,15 @@ tr {
     <td><img src="http://bit.ly/cgidb_goats"></td>
     <td></td>
 </tr>
+
 <tr>
-    <td>"Alpaca Punch"</td>
-    <td>"Top of the food chain"</td>
-    <td>"I'm on Break!</td>
+<c:forEach var="caption" items="${captions}">
+
+    <td>  ${caption} </td>
+
+</c:forEach>
 </tr>
+
 </table>
 
 </body>
