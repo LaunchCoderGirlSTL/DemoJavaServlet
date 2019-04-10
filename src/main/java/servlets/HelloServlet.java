@@ -26,6 +26,8 @@ public class HelloServlet extends HttpServlet {
             }
         } catch (SQLException e) {
             System.out.println(e.getErrorCode());
+            e.printStackTrace();
+            writer.print("Something went wrong while connecting to the database. Check the server log for details");
         }finally {
             if (resultSet != null) {
                 try {
@@ -61,6 +63,8 @@ public class HelloServlet extends HttpServlet {
 
         } catch (SQLException e) {
             System.out.println(e.getErrorCode());
+            e.printStackTrace();
+            writer.print("Something went wrong while connecting to the database. Check the server log for details");
         }
     }
 
